@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/SinhVien/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h2>Thay đổi mật khẩu</h2>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <table>
+        <tbody>
+            <tr>
+                <td>Mật Khẩu Hiện Tại</td>
+                <td>@Html.Password("MatKhauHienTai", "", new { @class = "text-danger" })</td>
+            </tr>
+            <tr>
+                <td colspan="3" height="5">
+                </td>
+            </tr>
+            <tr>
+                <td>Mật Khẩu Mới</td>
+                <td>@Html.Password("MatKhauMoi", "", new { @class = "text-danger" })</td>
+            </tr>
+            <tr>
+                <td colspan="3" height="5">
+                </td>
+            </tr>
+            <tr>
+                <td>Nhập Lại Mật Khẩu Mới</td>
+                <td>@Html.Password("MatKhauMoi2", "", new { @class = "text-danger" })</td>
+            </tr>
+            <tr>
+                <td colspan="3" height="5">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Đổi mật khẩu" class="btn btn-primary" /></td>
+            </tr>
+        </tbody>
+    </table>
+}
+<div class="pl-4">
+    @Html.ActionLink("Hủy", "ThongTinSV_GD", null, new { @class = "btn btn-default" })
+</div>

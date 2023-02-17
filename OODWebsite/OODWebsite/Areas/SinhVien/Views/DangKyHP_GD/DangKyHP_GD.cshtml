@@ -1,0 +1,110 @@
+﻿@using OODWebsite.Models
+@model dynamic
+@{
+    ViewBag.Title = "DangKyHP_GD";
+    Layout = "~/Areas/SinhVien/Views/Shared/_Layout.cshtml";
+}
+
+<h2>backup</h2>
+
+<h2>DangKyHP_GD</h2>
+<div>
+    <table>
+        <tr>
+            <th>Mã Học Phần</th>
+            <th>Tên Học Phần</th>
+            <th>Lớp</th>
+            <th>Số Tín Chỉ</th>
+            <th>Sỉ Số</th>
+            <th>Đã Đăng Ký</th>
+            <th>Lịch học
+            <th>
+        </tr>
+        @foreach (DSDK m in Model.DSDK)
+        {
+            <tr>
+                <td>
+                    @m.MaHP
+                </td>
+                <td>
+                    @m.TenHP
+                </td>
+                <td>
+                    @m.TenLop
+                </td>
+                <td>
+                    @m.SoTinChi
+                </td>
+                <td>
+                    @m.SiSo
+                </td>
+                <td>
+                    @m.ĐK
+                </td>
+                <td>
+                    @m.Thu (@m.TietBD-@m.TietKT)
+                </td>
+                <td>
+                    @Html.CheckBox("Huy", false, new { id = @m.MaHP })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <table>
+            <tr>
+                <th>Mã Học Phần</th>
+                <th>Tên Học Phần</th>
+                <th>Lớp</th>
+                <th>Số Tín Chỉ</th>
+                <th>Sỉ Số</th>
+                <th>Đã Đăng Ký</th>
+                <th>Lịch học
+                <th>
+            </tr>
+            @foreach (DSLHP m in Model.DSLHP)
+            {
+                <tr>
+                    <td>
+                        @m.MaLHP
+                    </td>
+                    <td>
+                        @m.MaHP
+                    </td>
+                    <td>
+                        @m.TenHP
+                    </td>
+                    <td>
+                        @m.TenLop
+                    </td>
+                    <td>
+                        @m.SoTinChi
+                    </td>
+                    <td>
+                        @m.SiSo
+                    </td>
+                    <td>
+                        @m.ĐK
+                    </td>
+                    <td>
+                        @m.Thu (@m.TietBD-@m.TietKT)
+                    </td>
+                    <td>
+                        @Html.CheckBox("DangKy", false, new { id = @m.MaHP })
+                    </td>
+                </tr>
+
+            }
+            <tr>
+                <td>
+                    <input type="submit" value="Đăng ký" class="btn btn-primary" />
+                </td>
+            </tr>
+
+        </table>
+    </div>
+}
