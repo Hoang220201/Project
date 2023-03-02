@@ -1,0 +1,16 @@
+﻿@model IEnumerable<VNR_InternShip.KhoaHoc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 class="fw-bold">Khóa học</h1>
+<hr style=" height: 10px; background-color: #B0FC38; border: none;" />
+@foreach (var item in Model)
+{
+    <li><a>@Html.ActionLink(item.TenKhoaHoc, "Subject", new { id = item.ID }) </a></li>
+}
+
+

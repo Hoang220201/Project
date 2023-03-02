@@ -1,0 +1,21 @@
+﻿@model IEnumerable<VNR_InternShip.MonHoc>
+
+@{
+    ViewBag.Title = "Subject";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 class="fw-bold">Khóa học: @ViewBag.CourseName.TenKhoaHoc </h1>
+<hr style=" height: 10px; background-color: #B0FC38; border: none;" />
+<ol style="width: 80em;">
+    @foreach (var item in Model)
+    {
+        <li class="p-2 g-col-6" style="float: left; width: 30em;">@Html.DisplayFor(m => item.TenMonHoc)</li>
+    }
+</ol>
+
+@Html.ActionLink("Back to Course", "Index")
+
+
+
